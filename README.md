@@ -1,4 +1,12 @@
 color-board-pro
 ===============
 
-More advanced version of color-board
+More advanced version of color-board.
+
+In order to start this example, first install Socket.IO
+
+``npm install socket.io``
+
+Then, start using
+
+``npm start``

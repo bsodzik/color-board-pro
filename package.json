@@ -1,0 +1,18 @@
+{
+  "name": "color-board-pro",
+  "version": "1.0.0",
+  "description": "Color Board Pro",
+  "main": "lib/server.js",
+  "dependencies": {
+    "socket.io": ">=0.9"
+  },
+  "scripts": {
+    "start": "node lib/server.js"
+  },
+  "author": "Tomasz Przybyla",
+  "license": "BSD",
+  "subdomain": "bsodzik",
+  "engines": {
+    "node": ">=0.8"
+  }
+}
