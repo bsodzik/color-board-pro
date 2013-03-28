@@ -1,6 +1,6 @@
 "use strict";
 
-var painterFactory = (function () {
+var painterFactory = (function (controller) {
 	var fxFactory, fyFactory;
 
 	fxFactory = function (obj, nextObj) {
@@ -20,26 +20,11 @@ var painterFactory = (function () {
 	};
 
 	return function (listeners) {
-		var canvas, context, isPainting, circle;
+		var canvas, context, circle;
 
 		canvas = document.getElementById('canvas');
 		context = canvas.getContext('2d');
-
-		canvas.addEventListener('mousemove', function (e) {
-			if (isPainting) {
-				listeners.onPaint(
-					e.clientX - e.currentTarget.offsetLeft,
-					e.clientY - e.currentTarget.offsetTop
-				);
-			}
-		});
-		canvas.addEventListener('mousedown', function (e) {
-			isPainting = true;
-		});
-		canvas.addEventListener('mouseup', function (e) {
-			listeners.onStop();
-			isPainting = false;
-		});
+		controller(canvas, listeners);
 
 		circle = function (x, y) {
 			context.arc(x, y, 3, 0, 2 * Math.PI, false);
@@ -107,4 +92,4 @@ var painterFactory = (function () {
 		};
 	};
 
-})();
+})(window.controller);
