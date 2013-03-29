@@ -1,12 +1,12 @@
 "use strict";
 
 window.addEventListener('load', function() {
-	var url, socket, messages = [], init, painter;
+	var url, socket, messages = [], painter;
 
 	url = location.origin;
 	socket = io.connect(url, { reconnect: false });
 
-	socket.on('init', function (color) {
+	socket.on('init', function () {
 		var listeners = {
 			onPaint: function (x, y) {
 				messages.push({ x: x, y: y });
